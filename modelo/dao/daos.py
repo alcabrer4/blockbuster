@@ -1,9 +1,9 @@
 from modelo import conexion
-from dto import dtos as do
+from modelo.dto import dtos as do
 import abc
 
 class DAO:
-    def __init__(self, table, cnx:conexion.cnx) -> None:
+    def __init__(self, table, cnx) -> None:
         self.table = table
         self.cnx = cnx
     
@@ -32,9 +32,9 @@ class DAO:
 
 class Video_StoresDAO(DAO):
     def __init__(self, cnx) -> None:
-        super.__init__("Video_Stores", cnx)
+        super().__init__("Video_Stores", cnx)
 
-    def get_data(self) -> list(do.Video_StoresDTO):
+    def get_data(self):
         cursor = self.get_cursor()
         stores = []
         for (code, address, phone, email) in cursor:
@@ -44,7 +44,7 @@ class Video_StoresDAO(DAO):
     
     def insert_data(self, dto:do.Video_StoresDTO):
         cursor = self.cnx.cursor()
-        putin = "INSERT INTO " + self.table + " (store_address, store_phone, store_email) VALUES (%s, %s, %s)"
+        putin = "INSERT INTO " + self.table + " (store_adress, store_phone, store_email) VALUES (%s, %s, %s)"
         values = (dto.address , dto.phone, dto.email)
         cursor.execute(putin,values)
         conexion.cnx.commit()
@@ -68,9 +68,9 @@ class Video_StoresDAO(DAO):
 
 class Format_TypesDAO(DAO):
     def __init__(self,cnx) -> None:
-        super.__init__("Format_Types", cnx)
+        super().__init__("Format_Types", cnx)
 
-    def get_data(self) -> list(do.Format_TypesDTO):
+    def get_data(self) -> list:
         cursor = self.get_cursor()
         descriptions = []
         for (code, description) in cursor:
@@ -95,9 +95,9 @@ class Format_TypesDAO(DAO):
 
 class Genre_CodesDAO(DAO):
     def __init__(self,cnx) -> None:
-        super.__init__("Genre_Codes", cnx)
+        super().__init__("Genre_Codes", cnx)
 
-    def get_data(self) -> list(do.Genres_CodesDTO):
+    def get_data(self) -> list:
         cursor = self.get_cursor()
         descriptions = []
         for (code, description) in cursor:
@@ -122,9 +122,9 @@ class Genre_CodesDAO(DAO):
 
 class MoviesDAO(DAO):
     def __init__(self,cnx) -> None:
-        super.__init__("Movies", cnx)
+        super().__init__("Movies", cnx)
 
-    def get_data(self) -> list(do.MoviesDTO):
+    def get_data(self) -> list:
         cursor = self.get_cursor()
         movies = []
         for (code, formatid, genreid, storeid, release, title, stock, rntlrate, price) in cursor:
@@ -170,9 +170,9 @@ class MoviesDAO(DAO):
 
 class ActorsDAO(DAO):
     def __init__(self,cnx) -> None:
-        super.__init__("Actors", cnx)
+        super().__init__("Actors", cnx)
 
-    def get_data(self) -> list(do.ActorsDTO):
+    def get_data(self) -> list:
         cursor = self.get_cursor()
         actors = []
         for (code, firstname, lastname, gender) in cursor:
@@ -203,9 +203,9 @@ class ActorsDAO(DAO):
 
 class Movie_CastDAO(DAO):
     def __init__(self,cnx) -> None:
-        super.__init__("Movie_Cast", cnx)
+        super().__init__("Movie_Cast", cnx)
 
-    def get_data(self) -> list(do.Movie_CastDTO):
+    def get_data(self) -> list:
         cursor = self.get_cursor()
         l = []
         for (code, movieid, actorid) in cursor:
@@ -233,9 +233,9 @@ class Movie_CastDAO(DAO):
 
 class Rental_Status_CodesDAO(DAO):
     def __init__(self,cnx) -> None:
-        super.__init__("Rental_Status_Codes", cnx)
+        super().__init__("Rental_Status_Codes", cnx)
 
-    def get_data(self) -> list(do.Rental_Status_CodesDTO):
+    def get_data(self) -> list:
         cursor = self.get_cursor()
         descriptions = []
         for (code, description) in cursor:
@@ -253,9 +253,9 @@ class Rental_Status_CodesDAO(DAO):
 
 class CostumersDAO(DAO):
     def __init__(self,cnx) -> None:
-        super.__init__("Costumers", cnx)
+        super().__init__("Costumers", cnx)
 
-    def get_data(self) -> list(do.CostumersDTO):
+    def get_data(self) -> list:
         cursor = self.get_cursor()
         costumers = []
         for (code, firstname, lastname, phone, email, address) in cursor:
@@ -273,9 +273,9 @@ class CostumersDAO(DAO):
 
 class Costumer_RentalsDAO(DAO):
     def __init__(self,cnx) -> None:
-        super.__init__("Costumer_Rentals", cnx)
+        super().__init__("Costumer_Rentals", cnx)
 
-    def get_data(self) -> list(do.Costumer_RentalsDTO):
+    def get_data(self) -> list:
         cursor = self.get_cursor()
         cr = []
         for (code, costumerid, movieid, rntlstatusid, rntlout, rntlreturned, amountdue) in cursor:
@@ -293,9 +293,9 @@ class Costumer_RentalsDAO(DAO):
 
 class Payment_MethodsDAO(DAO):
     def __init__(self,cnx) -> None:
-        super.__init__("Payment_Methods", cnx)
+        super().__init__("Payment_Methods", cnx)
 
-    def get_data(self) -> list(do.Payment_MethodsDTO):
+    def get_data(self) -> list:
         cursor = self.get_cursor()
         descriptions = []
         for (code, description) in cursor:
@@ -313,9 +313,9 @@ class Payment_MethodsDAO(DAO):
 
 class AccountsDAO(DAO):
     def __init__(self,cnx) -> None:
-        super.__init__("Accounts", cnx)
+        super().__init__("Accounts", cnx)
 
-    def get_data(self) -> list(do.AccountsDTO):
+    def get_data(self) -> list:
         cursor = self.get_cursor()
         accounts = []
         for (code, costumerid, paymethodid, accountname) in cursor:
@@ -333,9 +333,9 @@ class AccountsDAO(DAO):
 
 class Transaction_TypesDAO(DAO):
     def __init__(self,cnx) -> None:
-        super.__init__("Transaction_Types", cnx)
+        super().__init__("Transaction_Types", cnx)
 
-    def get_data(self) -> list(do.Transaction_TypesDTO):
+    def get_data(self) -> list:
         cursor = self.get_cursor()
         descriptions = []
         for (code, description) in cursor:
@@ -353,9 +353,9 @@ class Transaction_TypesDAO(DAO):
 
 class Financial_TransactionsDAO(DAO):
     def __init__(self,cnx) -> None:
-        super.__init__("Financial_Transactions", cnx)
+        super().__init__("Financial_Transactions", cnx)
 
-    def get_data(self) -> list(do.Financial_TransactionsDTO):
+    def get_data(self) -> list:
         cursor = self.get_cursor()
         ft = []
         for (code, accountid, itemrntlid, trantypeid, trandate, tranammount) in cursor:

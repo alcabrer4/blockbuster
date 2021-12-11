@@ -1,0 +1,6 @@
+from modelo.dao import daos
+from modelo import conexion as cnn
+from modelo.dto import dtos
+new_store = dtos.Video_StoresDTO(1010, "av heroica esc naval 132", 553612312, "email@email.com")
+store_dao = daos.Video_StoresDAO(cnn.cnx)
+store_dao.insert_data(new_store)

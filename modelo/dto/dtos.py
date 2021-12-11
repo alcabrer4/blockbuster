@@ -1,16 +1,16 @@
 from datetime import date
 
 class Video_StoresDTO:
-    def __init__(self, id:int, address:str, phone:int, email:str) -> None:
-        self.id = id
+    def __init__(self, code:int, address:str, phone:int, email:str) -> None:
+        self.code = code
         self.address = address
         self.phone = phone
         self.email = email
     
-    def get_id(self):
-        return self.id
-    def set_id(self,x:int):
-        self.id = x
+    def get_code(self):
+        return self.code
+    def set_code(self,x:int):
+        self.code = x
         
     def get_address(self):
         return self.address
@@ -29,14 +29,14 @@ class Video_StoresDTO:
 
 
 class Format_TypesDTO:
-    def __init__(self, id:int, description:str) -> None:
-        self.id = id
+    def __init__(self, code:int, description:str) -> None:
+        self.code = code
         self.description = description
     
-    def get_id(self):
-        return self.id
-    def set_id(self,x:int):
-        self.id = x
+    def get_code(self):
+        return self.code
+    def set_code(self,x:int):
+        self.code = x
     
     def get_description(self):
         return self.description
@@ -45,14 +45,14 @@ class Format_TypesDTO:
 
 
 class Genres_CodesDTO:
-    def __init__(self, id:int, description:str) -> None:
-        self.id = id
+    def __init__(self, code:int, description:str) -> None:
+        self.code = code
         self.description = description
     
-    def get_id(self):
-        return self.id
-    def set_id(self,x:int):
-        self.id = x
+    def get_code(self):
+        return self.code
+    def set_code(self,x:int):
+        self.code = x
     
     def get_description(self):
         return self.description
@@ -61,8 +61,8 @@ class Genres_CodesDTO:
 
 
 class MoviesDTO:
-    def __init__(self, id:int, formatid:int, genreid:int, storeid:int, release:date, title:str, stock:int, rntlrate:float, price:float) -> None:
-        self.id = id
+    def __init__(self, code:int, formatid:int, genreid:int, storeid:int, release:date, title:str, stock:int, rntlrate:float, price:float) -> None:
+        self.code = code
         self.formatid = formatid
         self.genreid = genreid
         self.storeid = storeid
@@ -72,10 +72,10 @@ class MoviesDTO:
         self.rntlrate = rntlrate
         self.price = price
     
-    def get_id(self):
-        return self.id
-    def set_id(self,x:int):
-        self.id = x
+    def get_code(self):
+        return self.code
+    def set_code(self,x:int):
+        self.code = x
     
     def get_formatid(self):
         return self.formatid
@@ -119,16 +119,16 @@ class MoviesDTO:
 
 
 class ActorsDTO:
-    def __init__(self, id:int, firstname:str, lastname:str, gender:str) -> None:
-        self.id = id
+    def __init__(self, code:int, firstname:str, lastname:str, gender:str) -> None:
+        self.code = code
         self.firstname = firstname
         self.lastname = lastname
         self.gender = gender
     
-    def get_id(self):
-        return self.id
-    def set_id(self,x:int):
-        self.id = x
+    def get_code(self):
+        return self.code
+    def set_code(self,x:int):
+        self.code = x
     
     def get_firstname(self):
         return self.firstname
@@ -147,15 +147,15 @@ class ActorsDTO:
 
 
 class Movie_CastDTO:
-    def __init__(self, id:int, movieid:int, actorid:int) -> None:
-        self.id = id
+    def __init__(self, code:int, movieid:int, actorid:int) -> None:
+        self.code = code
         self.movieid = movieid
         self.actorid = actorid
 
-    def get_id(self):
-        return self.id
-    def set_id(self,x:int):
-        self.id = x
+    def get_code(self):
+        return self.code
+    def set_code(self,x:int):
+        self.code = x
     
     def get_movieid(self):
         return self.movieid
@@ -169,14 +169,14 @@ class Movie_CastDTO:
 
 
 class Rental_Status_CodesDTO:
-    def __init__(self, id:int,description:str) -> None:
-        self.id = id
+    def __init__(self, code:int,description:str) -> None:
+        self.code = code
         self.description = description
     
-    def get_id(self):
-        return self.id
-    def set_id(self,x:int):
-        self.id = x
+    def get_code(self):
+        return self.code
+    def set_code(self,x:int):
+        self.code = x
 
     def get_description(self):
         return self.description 
@@ -185,18 +185,18 @@ class Rental_Status_CodesDTO:
 
 
 class CostumersDTO:
-    def __init__(self, id:int, firstname:str, lastname:str, phone:int, email:str, address:str) -> None:
-        self.id = id
+    def __init__(self, code:int, firstname:str, lastname:str, phone:int, email:str, address:str) -> None:
+        self.code = code
         self.firstname = firstname
         self.lastname = lastname
         self.phone = phone
         self.email = email
         self.address = address
 
-    def get_id(self):
-        return self.id
-    def set_id(self,x:int):
-        self.id = x
+    def get_code(self):
+        return self.code
+    def set_code(self,x:int):
+        self.code = x
     
     def get_firstname(self):
         return self.firstname
@@ -225,8 +225,8 @@ class CostumersDTO:
 
 
 class Costumer_RentalsDTO:
-    def __init__(self, id:int, costumerid:int, movieid:int, rntlstatusid:int, rntlout:date, rntlreturned:date, amountdue:float) -> None:
-        self.id = id
+    def __init__(self, code:int, costumerid:int, movieid:int, rntlstatusid:int, rntlout:date, rntlreturned:date, amountdue:float) -> None:
+        self.code = code
         self.costumerid = costumerid
         self.movieid = movieid
         self.rntlstatusid = rntlstatusid
@@ -234,10 +234,10 @@ class Costumer_RentalsDTO:
         self.rntlreturned =rntlreturned
         self.amountdue = amountdue
 
-    def get_id(self):
-        return self.id
-    def set_id(self,x:int):
-        self.id = x
+    def get_code(self):
+        return self.code
+    def set_code(self,x:int):
+        self.code = x
 
     def get_costumerid(self):
         return self.costumerid
@@ -271,14 +271,14 @@ class Costumer_RentalsDTO:
 
 
 class Payment_MethodsDTO:
-    def __init__(self, id:int, description:str) -> None:
-        self.id = id
+    def __init__(self, code:int, description:str) -> None:
+        self.code = code
         self.description = description
 
-    def get_id(self):
-        return self.id
-    def set_id(self,x:int):
-        self.id = x
+    def get_code(self):
+        return self.code
+    def set_code(self,x:int):
+        self.code = x
     
     def get_description(self):
         return self.description
@@ -287,16 +287,16 @@ class Payment_MethodsDTO:
 
 
 class AccountsDTO:
-    def __init__(self, id:int, costumerid:int, paymethodid:int, accountname:str) -> None:
-        self.id = id
+    def __init__(self, code:int, costumerid:int, paymethodid:int, accountname:str) -> None:
+        self.code = code
         self.costumerid = costumerid
         self.paymethodid = paymethodid
         self.accountname = accountname
     
-    def get_id(self):
-        return self.id
-    def set_id(self,x:int):
-        self.id = x
+    def get_code(self):
+        return self.code
+    def set_code(self,x:int):
+        self.code = x
 
     def get_costumerid(self):
         return self.costumerid
@@ -315,14 +315,14 @@ class AccountsDTO:
 
 
 class Transaction_TypesDTO:
-    def __init__(self, id:int, description:str) -> None:
-        self.id = id
+    def __init__(self, code:int, description:str) -> None:
+        self.code = code
         self.description = description
 
-    def get_id(self):
-        return self.id
-    def set_id(self,x:int):
-        self.id = x
+    def get_code(self):
+        return self.code
+    def set_code(self,x:int):
+        self.code = x
 
     def get_description(self):
         return self.description
@@ -331,18 +331,18 @@ class Transaction_TypesDTO:
 
 
 class Financial_TransactionsDTO:
-    def __init__(self, id:int, accountid:int, itemrntlid:int, trantypeid:int, trandate:date, tranammount:date) -> None:
-        self.id = id
+    def __init__(self, code:int, accountid:int, itemrntlid:int, trantypeid:int, trandate:date, tranammount:date) -> None:
+        self.code = code
         self.accountid = accountid
         self.itemrntlid = itemrntlid
         self.trantypeid = trantypeid
         self.trandate = trandate
         self.tranammount = tranammount
     
-    def get_id(self):
-        return self.id
-    def set_id(self,x:int):
-        self.id = x
+    def get_code(self):
+        return self.code
+    def set_code(self,x:int):
+        self.code = x
     
     def get_accountid(self):
         return self.accountid
